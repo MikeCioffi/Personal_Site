@@ -13,19 +13,47 @@ export default function Accordions(props) {
 	}
 
 	return (
-		<Fragment>
-			<Accordion open={open === 1} onClick={() => handleOpen(1)}>
-				<AccordionHeader>Requirements</AccordionHeader>
-				<AccordionBody>{props.requirements}</AccordionBody>
-			</Accordion>
-			<Accordion open={open === 2} onClick={() => handleOpen(2)}>
-				<AccordionHeader>Challenges</AccordionHeader>
-				<AccordionBody>{props.challenges}</AccordionBody>
-			</Accordion>
-			<Accordion open={open === 3} onClick={() => handleOpen(3)}>
-				<AccordionHeader>Techstack</AccordionHeader>
-				<AccordionBody>{props.techstack}</AccordionBody>
-			</Accordion>
-		</Fragment>
+		<div>
+			<Fragment>
+				<Accordion
+					open={open === 1}
+					onClick={() => handleOpen(1)}
+					className='w-full md:w-1/2	 m-auto mb-5'
+				>
+					<AccordionHeader className='p-3 border border-sky-500 rounded'>
+						Requirements
+					</AccordionHeader>
+					<AccordionBody className='text-left mt-1 p-2 bg-sky-500 rounded'>
+						{props.requirements}
+					</AccordionBody>
+				</Accordion>
+				<Accordion
+					open={open === 2}
+					onClick={() => handleOpen(2)}
+					className='w-full	 md:w-1/2	 m-auto mb-5'
+				>
+					<AccordionHeader className='p-3 border border-sky-500 rounded'>
+						Challenges
+					</AccordionHeader>
+					<AccordionBody className='text-left mt-1 p-2 bg-sky-500 rounded'>
+						{props.challenges}
+					</AccordionBody>
+				</Accordion>
+				<Accordion
+					open={open === 3}
+					onClick={() => handleOpen(3)}
+					className='w-full	 md:w-1/2	 m-auto mb-5'
+				>
+					<AccordionHeader className=' p-3 border border-sky-500 rounded'>
+						Techstack
+					</AccordionHeader>
+					<AccordionBody className='text-left mt-1 p-2 bg-sky-500 rounded'>
+						<ul class='list-disc'>
+							<li>{props.techstack}</li>
+						</ul>
+					</AccordionBody>
+				</Accordion>
+			</Fragment>
+		</div>
 	)
 }
