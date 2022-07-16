@@ -17,8 +17,8 @@ export default function Navbar() {
 							Mike Cioffi
 						</Link>
 					</div>
-					<div className='flex flex-grow items-center'>
-						<ul className='flex flex-row list-none ml-auto'>
+					<div className='flex flex-grow items-center lg:justify-end justify-center  w-full lg:w-auto'>
+						<ul className='flex flex-row list-none '>
 							<li className='nav-item'>
 								<Link
 									duration={300}

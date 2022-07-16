@@ -11,9 +11,12 @@ export default function Intro() {
 		>
 			<h1 className='text-white text-center text-5xl md:text-5xl lg:text-8xl -mt-24'>
 				{" "}
-				Hi I'm <span className='text-blue'>Mike</span> <br></br>aspiring web
-				develeoper{" "}
+				Hi, I'm <span className='text-blue'>Mike</span>!
 			</h1>
+			<span className='text-white text-center text-3xl'>
+				Front End Develeoper{" "}
+			</span>
+
 			<div className='flex'>
 				<a
 					href='https://www.linkedin.com/in/michaelcioffi95/'
