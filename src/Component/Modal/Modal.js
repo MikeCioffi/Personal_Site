@@ -13,7 +13,7 @@ export default function Modal(props) {
 						onClick={props.closeModal}
 					>
 						<div
-							className='relative w-11/12 xl:w-1/2 z-2 min-h-[350px]
+							className=' cursor-default	relative w-11/12 xl:w-1/2 z-2 min-h-[350px]
 							'
 							onClick={(e) => e.stopPropagation()}
 						>
