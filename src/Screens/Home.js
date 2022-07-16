@@ -4,6 +4,8 @@ import Intro from "../Component/Intro/Intro"
 import Navbar from "../Component/Navbar/Navbar"
 import Projects from "../Component/Projects/Projects"
 
+import "./home.css"
+
 export default function Home() {
 	return (
 		<>

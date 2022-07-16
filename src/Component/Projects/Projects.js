@@ -119,9 +119,9 @@ export default function Projects() {
 								alt='react'
 							/>
 							<img
-								width='50px'
-								height='50px'
-								src={require("../../assets/Icons/css3.png")}
+								width='50'
+								height='50'
+								src={require("../../assets/Icons/bootstrap.png")}
 								alt='css'
 							/>
 						</div>

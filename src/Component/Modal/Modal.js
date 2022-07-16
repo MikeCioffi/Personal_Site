@@ -1,5 +1,7 @@
 import React from "react"
 import "./modal.css"
+import { LazyLoadImage } from "react-lazy-load-image-component"
+
 export default function Modal(props) {
 	return (
 		<>
@@ -7,34 +9,34 @@ export default function Modal(props) {
 				<>
 					<div
 						id='modal'
-						className='justify-center items-center flex overflow-x-hidden overflow-y-hidden h-screen fixed inset-5 z-50 outline-none focus:outline-none'
+						className='justify-center items-center flex overflow-x-hidden overflow-y-hidden h-screen w-screen fixed inset-0 z-50 outline-none focus:outline-none'
 						onClick={props.closeModal}
 					>
 						<div
-							className='relative w-xl my-6 mx-auto xl:w-1/2 z-2'
+							className='relative w-11/12 xl:w-1/2 z-2 min-h-[350px]
+							'
 							onClick={(e) => e.stopPropagation()}
 						>
 							{/*content*/}
-							<div className='border-0 rounded-lg shadow-lg relative flex flex-col w-full min-h-max bg-white outline-none focus:outline-none'>
+							<div className='border-0 rounded-lg shadow-lg relative flex flex-col w-full min-h-[60%] bg-white outline-none focus:outline-none'>
 								{/*header*/}
-								<div className='flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t'>
-									<h3 className='text-3xl text-theme-primary-1 font-semibold'>
-										{props.title}
-									</h3>
-									<button
-										className='p-1 ml-auto bg-transparent border-0 text-red opacity-2 float-right text-3xl leading-none font-bold outline-none focus:outline-none'
-										onClick={props.closeModal}
-									>
-										<span className='text-red bg-transparent bold text-red h-8 w-8 text-2xl block outline-none focus:outline-none'>
-											×
-										</span>
-									</button>
-								</div>
+								<button
+									className='p-1 ml-auto bg-transparent border-0 float-right leading-none font-bold outline-none focus:outline-none'
+									onClick={props.closeModal}
+								>
+									<span className='text-red bg-transparent bold text-red h-8 w-8 text-3xl block outline-none focus:outline-none'>
+										×
+									</span>
+								</button>
 								{/*body*/}
 								{/* left side of modal */}
-								<div className='flex p-6 flex-auto flex-col lg:flex-row'>
+								<div className='flex p-10 flex-auto flex-col lg:flex-row'>
 									<div className='w-full lg:w-1/2'>
-										<img src={props.gif} alt='gif' className='shadow rounded' />
+										<LazyLoadImage
+											alt='gif'
+											src={props.gif}
+											className='shadow rounded'
+										/>
 									</div>
 									{/* right side of modal */}
 									<div className='w-full lg:w-1/2'>
