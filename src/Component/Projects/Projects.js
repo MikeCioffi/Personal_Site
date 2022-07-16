@@ -57,8 +57,41 @@ export default function Projects() {
 
 				modal: (
 					<div className='text-theme-primary-2 leading-relaxed'>
-						<h1>Challenges</h1>
-						<p> challenges were...</p>
+						<p className='font-bold'>
+							MERN stack application to provide a simple way RSVP to your next
+							event!
+						</p>
+						<br></br>
+						<h1 className='font-bold'>Features</h1>
+						<ul>
+							<li className='list-none lg:list-dic'>
+								Ability to select and save your menu choice to the event
+							</li>
+							<li className='list-none lg:list-dic'>
+								Ability to create and delete familys
+							</li>
+							<li className='list-none lg:list-dic'>
+								Dashboard to showcase totals at a glance
+							</li>
+						</ul>
+						<br></br>
+						<h1 className='font-bold'>Lessons Learned</h1>
+						<ul>
+							<li className='list-none lg:list-dic'></li>
+							<li className='list-none lg:list-dic'>
+								Ability to maintain family list with create and delete
+							</li>
+							<li className='list-none lg:list-dic'>
+								Dashboard to showcase totals at a glance
+							</li>
+						</ul>
+						<br></br>
+						<h1>
+							<span className='font-bold'>Please Note: </span>Heroku hibernation
+							causes first call will take a few additional seconds
+						</h1>
+
+						<br></br>
 					</div>
 				),
 			},
@@ -102,7 +135,36 @@ export default function Projects() {
 					</div>
 				),
 				modal: (
-					<div className='text-theme-primary-2 text-lg leading-relaxed'></div>
+					<div className='text-theme-primary-2 leading-relaxed'>
+						<p className='font-bold'>
+							Pull your 10 latest games with League Tracker
+						</p>
+						<br></br>
+						<h1 className='font-bold'>Features</h1>
+						<ul>
+							<li className='list-none lg:list-dic'>
+								Connects to RIOT's Api to pull individual match data
+							</li>
+							<li className='list-none lg:list-dic'>
+								Utilizes ChartJS to display summary data
+							</li>
+						</ul>
+						<br></br>
+						<h1 className='font-bold'>Lessons Learned</h1>
+						<ul>
+							<li className='list-none lg:list-dic'>
+								Utilizing AWS API Gateway to alleviate CORS issue
+							</li>
+							<li className='list-none lg:list-dic'>
+								Lazy loading images for performance improvements
+							</li>
+							<li className='list-none lg:list-dic'>
+								Dashboard to showcase totals at a glance
+							</li>
+						</ul>
+
+						<br></br>
+					</div>
 				),
 			},
 
@@ -141,7 +203,38 @@ export default function Projects() {
 				),
 
 				modal: (
-					<div className='text-theme-primary-2 text-lg leading-relaxed'></div>
+					<div className='text-theme-primary-2 leading-relaxed'>
+						<p className='font-bold'>Time Entry Helper</p>
+						<br></br>
+						<h1 className='font-bold'>Features</h1>
+						<ul>
+							<li className='list-none lg:list-dic'>
+								Pulls google calendar events for user selected dates
+							</li>
+							<li className='list-none lg:list-dic'>
+								Allows user to set their own tags per event
+							</li>
+							<li className='list-none lg:list-dic'>
+								Allows the user to export to CSV to upload to their time
+								tracking system
+							</li>
+						</ul>
+						<br></br>
+						<h1 className='font-bold'>Lessons Learned</h1>
+						<ul>
+							<li className='list-none lg:list-dic'>
+								Utilizing the user and calendar Google API
+							</li>
+							<li className='list-none lg:list-dic'>
+								Tranforming API data per the user inputs
+							</li>
+							<li className='list-none lg:list-dic'>
+								Leveraging react-csv to export modified data
+							</li>
+						</ul>
+
+						<br></br>
+					</div>
 				),
 			},
 			links: {

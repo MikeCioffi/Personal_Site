@@ -13,7 +13,7 @@ export default function Modal(props) {
 						onClick={props.closeModal}
 					>
 						<div
-							className=' cursor-default	relative w-11/12 xl:w-1/2 z-2 min-h-[350px]
+							className=' cursor-default	relative w-11/12 xl:w-8/12 z-2 min-h-[350px]
 							'
 							onClick={(e) => e.stopPropagation()}
 						>
@@ -31,7 +31,7 @@ export default function Modal(props) {
 								{/*body*/}
 								{/* left side of modal */}
 								<div className='flex p-10 flex-auto flex-col lg:flex-row'>
-									<div className='w-full lg:w-1/2'>
+									<div className='w-full lg:w-6/8'>
 										<LazyLoadImage
 											alt='gif'
 											src={props.gif}
@@ -39,10 +39,14 @@ export default function Modal(props) {
 										/>
 									</div>
 									{/* right side of modal */}
-									<div className='w-full lg:w-1/2'>
+									<div className='w-full lg:w-1/2 lg:ml-7 text-center lg:text-left'>
 										<div className='min-h-[80%]'>{props.modalDescription}</div>
 										<div className='flex justify-center align-center'>
-											<a href={props.liveLink}>
+											<a
+												href={props.liveLink}
+												target='blank'
+												rel='noopener noreferrer'
+											>
 												<button
 													type='button'
 													className='text-white bg-blue hover:bg-blue-light border-blue border-2 focus:ring-4 focus:outline-none focus:ring-cyan-300	dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center hover:bg-blue'
@@ -51,7 +55,11 @@ export default function Modal(props) {
 												</button>
 											</a>
 
-											<a href={props.githubLink}>
+											<a
+												href={props.githubLink}
+												target='blank'
+												rel='noopener noreferrer'
+											>
 												<button
 													type='button'
 													className='text-white bg-none border-none border-2 focus:ring-4 focus:outline-none focus:ring-cyan-300	dark:focus:ring-cyan-800 font-medium rounded-lg text-sm text-center m-1'

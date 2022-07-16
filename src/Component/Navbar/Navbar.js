@@ -19,7 +19,7 @@ export default function Navbar() {
 					</div>
 					<div className='flex flex-grow items-center lg:justify-end justify-center  w-full lg:w-auto'>
 						<ul className='flex flex-row list-none '>
-							<li className='nav-item'>
+							{/* <li className='nav-item'>
 								<Link
 									duration={300}
 									activeClass='text-blue'
@@ -29,7 +29,7 @@ export default function Navbar() {
 								>
 									<span className='ml-2'>About</span>
 								</Link>
-							</li>
+							</li> */}
 							<li className='nav-item'>
 								<Link
 									duration={300}
