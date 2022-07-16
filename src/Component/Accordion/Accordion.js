@@ -48,7 +48,7 @@ export default function Accordions(props) {
 						Techstack
 					</AccordionHeader>
 					<AccordionBody className='text-left mt-1 p-2 bg-sky-500 rounded'>
-						<ul class='list-disc'>
+						<ul className='list-disc'>
 							<li>{props.techstack}</li>
 						</ul>
 					</AccordionBody>

@@ -1,7 +1,13 @@
 .App {
   text-align: center;
 }
+.logo-blue{
+  cursor: pointer;
+  margin: 20px; 
+  filter: invert(7%) sepia(0%) saturate(1119%) hue-rotate(217deg) brightness(96%) contrast(82%);
 
+
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;

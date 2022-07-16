@@ -1,16 +1,17 @@
 import React from "react"
-
+import "./modal.css"
 export default function Modal(props) {
 	return (
 		<>
 			{props.showModal ? (
 				<>
 					<div
-						className='justify-center items-center flex overflow-x-hidden overflow-y-auto h-screen fixed inset-5 z-50 outline-none focus:outline-none'
+						id='modal'
+						className='justify-center items-center flex overflow-x-hidden overflow-y-hidden h-screen fixed inset-5 z-50 outline-none focus:outline-none'
 						onClick={props.closeModal}
 					>
 						<div
-							className='relative w-auto my-6 mx-auto xl:w-1/2'
+							className='relative w-xl my-6 mx-auto xl:w-1/2 z-2'
 							onClick={(e) => e.stopPropagation()}
 						>
 							{/*content*/}
@@ -33,36 +34,28 @@ export default function Modal(props) {
 								{/* left side of modal */}
 								<div className='flex p-6 flex-auto flex-col lg:flex-row'>
 									<div className='w-full lg:w-1/2'>
-										<img
-											src={props.gif}
-											alt='gif'
-											className='lg:h-96 shadow rounded'
-										/>
+										<img src={props.gif} alt='gif' className='shadow rounded' />
 									</div>
 									{/* right side of modal */}
 									<div className='w-full lg:w-1/2'>
-										<div className='min-h-[80%]'>
-											<p className='my-4 text-theme-primary-2 text-lg leading-relaxed'>
-												{props.modalDescription}
-											</p>
-										</div>
+										<div className='min-h-[80%]'>{props.modalDescription}</div>
 										<div className='flex justify-center align-center'>
 											<a href={props.liveLink}>
 												<button
 													type='button'
-													class='text-white bg-blue hover:bg-blue-light border-blue border-2 focus:ring-4 focus:outline-none focus:ring-cyan-300	dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center hover:bg-blue'
+													className='text-white bg-blue hover:bg-blue-light border-blue border-2 focus:ring-4 focus:outline-none focus:ring-cyan-300	dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center hover:bg-blue'
 												>
-													Visit Site
+													View Live
 												</button>
 											</a>
 
 											<a href={props.githubLink}>
 												<button
 													type='button'
-													class='text-white bg-none border-none border-2 focus:ring-4 focus:outline-none focus:ring-cyan-300	dark:focus:ring-cyan-800 font-medium rounded-lg text-sm text-center m-1'
+													className='text-white bg-none border-none border-2 focus:ring-4 focus:outline-none focus:ring-cyan-300	dark:focus:ring-cyan-800 font-medium rounded-lg text-sm text-center m-1'
 												>
 													<svg
-														class='w-8 h-8'
+														className='w-8 h-8'
 														aria-hidden='true'
 														focusable='false'
 														data-prefix='fab'
