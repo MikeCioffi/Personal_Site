@@ -1,7 +1,19 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import Project from "./Project"
 
 export default function Projects() {
+	const [allowScroll, setAllowScroll] = useState(true)
+
+	const toggleScroll = () => {
+		setAllowScroll((prevState) => !prevState)
+	}
+
+	useEffect(() => {
+		!allowScroll
+			? (document.body.style.overflow = "hidden")
+			: (document.body.style.overflow = "auto")
+	}, [allowScroll])
+	console.log(allowScroll)
 	const projects = [
 		{
 			title: "RSVP App",
@@ -139,14 +151,27 @@ export default function Projects() {
 		},
 	]
 	return (
-		<div className='bg-theme-primary-2 v-screen'>
+		<div
+			className={
+				allowScroll
+					? "bg-theme-primary-2 v-screen"
+					: "bg-theme-primary-2 v-screen overflow-hidden"
+			}
+		>
 			<h1 className='text-center text-5xl  text-white md:text-5xl  pt-14 pb-2'>
 				{" "}
 				PROJECTS{" "}
 			</h1>
-			<div className='flex flex-col lg:flex-row '>
+			<div
+				className={
+					allowScroll
+						? "flex flex-col lg:flex-row "
+						: "flex flex-col lg:flex-row overflow-hidden"
+				}
+			>
 				{projects.map((project, index) => (
 					<Project
+						toggleScroll={toggleScroll}
 						key={index}
 						title={project.title}
 						imageSrc={project.image.src}

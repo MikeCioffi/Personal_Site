@@ -6,6 +6,12 @@ export default function Project(props) {
 
 	const closeModal = () => {
 		setShowModal(false)
+		props.toggleScroll()
+	}
+
+	const openModal = () => {
+		setShowModal(true)
+		props.toggleScroll()
 	}
 
 	return (
@@ -19,7 +25,7 @@ export default function Project(props) {
 				</h3>
 				<br></br>
 				<img
-					onClick={() => setShowModal(true)}
+					onClick={openModal}
 					className='shadow-inner rounded-lg cursor-pointer	hover:opacity-95 '
 					src={props.imageSrc}
 					alt={props.imageAlt}
@@ -29,7 +35,7 @@ export default function Project(props) {
 
 				<div className='flex justify-center'>
 					<button
-						onClick={() => setShowModal(true)}
+						onClick={openModal}
 						type='button'
 						className='text-white w-full border-blue border-2 focus:ring-4 focus:outline-none focus:ring-cyan-300
 	dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-20 py-2.5 text-center m-2 hover:bg-blue w-100'

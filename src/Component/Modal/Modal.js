@@ -9,7 +9,7 @@ export default function Modal(props) {
 				<>
 					<div
 						id='modal'
-						className='justify-center items-center flex overflow-x-hidden overflow-y-hidden h-screen w-screen fixed inset-0 z-50 outline-none focus:outline-none'
+						className='cursor-pointer justify-center items-center flex overflow-x-hidden overflow-y-hidden h-screen w-screen fixed inset-0 z-50 outline-none focus:outline-none'
 						onClick={props.closeModal}
 					>
 						<div
