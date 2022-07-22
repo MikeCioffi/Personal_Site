@@ -9,7 +9,7 @@ export default function Projects() {
 	}
 
 	useEffect(() => {
-		!allowScroll
+		!allowScroll && document.body.clientWidth > 500
 			? (document.body.style.overflow = "hidden")
 			: (document.body.style.overflow = "auto")
 	}, [allowScroll])
@@ -20,47 +20,63 @@ export default function Projects() {
 			image: {
 				title: "Wedding RSVP App",
 				src: require("../../../src/assets/RSVP_Color2.jpg"),
-				gif: require("../../../src/assets/rsvp.gif"),
+				gif: require("../../../src/assets/rsvp2.gif"),
 			},
 			description: {
 				intro: (
 					<div>
 						<p>Event RSVP application</p>
-						<div className='flex justify-center'>
-							<img
-								width='50px'
-								height='50px'
-								src={require("../../assets/Icons/react.png")}
-								alt='react'
-							/>{" "}
-							<img
-								width='50px'
-								height='50px'
-								src={require("../../assets/Icons/css3.png")}
-								alt='css'
-							/>{" "}
-							<img
-								width='50px'
-								height='50px'
-								src={require("../../assets/Icons/node-js.png")}
-								alt=''
-							/>
-							<img
-								width='50px'
-								height='50px'
-								src={require("../../assets/Icons/mongodb.png")}
-								alt=''
-							/>
+						<div className='flex justify-center flex-wrap md:flex-nowrap'>
+							<button className='h-[25px] px-3 flex justify-center items-center cursor-default  bg-blue-light text-white text-sm font-medium rounded-full m-2'>
+								<img
+									width='15'
+									height='15'
+									src={require("../../assets/Icons/react.png")}
+									alt='react'
+								/>
+								<span className='  ml-2'>React</span>
+							</button>{" "}
+							<button className='h-[25px] px-3 flex justify-center items-center cursor-default  bg-blue text-white text-sm font-medium rounded-full m-2'>
+								<img
+									width='15'
+									height='15'
+									src={require("../../assets/Icons/css3.png")}
+									alt='react'
+								/>
+								<span className='  ml-2'>CSS</span>
+							</button>
+							<button className='h-[25px] px-3 flex justify-center items-center cursor-default  bg-white text-green text-sm font-medium rounded-full m-2'>
+								<img
+									width='15'
+									height='15'
+									src={require("../../assets/Icons/node-js.png")}
+									alt='react'
+								/>
+								<span className='  ml-2'>NodeJS</span>
+							</button>
+							<button className='h-[25px] px-3 flex justify-center items-center cursor-default  bg-green-dark text-white text-sm font-medium rounded-full m-2'>
+								<img
+									width='15'
+									height='15'
+									src={require("../../assets/Icons/mongodb.png")}
+									alt='react'
+								/>
+								<span className='  ml-2'>MongoDB</span>
+							</button>
 						</div>
 					</div>
 				),
 
 				modal: (
-					<div className='text-theme-primary-2 leading-relaxed'>
+					<>
+						<time className='mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500'>
+							May 2022
+						</time>
 						<p className='font-bold'>
 							MERN stack application to provide a simple way RSVP to your next
 							event!
 						</p>
+
 						<br></br>
 						<h1 className='font-bold'>Features</h1>
 						<ul>
@@ -92,7 +108,7 @@ export default function Projects() {
 						</h1>
 
 						<br></br>
-					</div>
+					</>
 				),
 			},
 			links: {
@@ -113,29 +129,41 @@ export default function Projects() {
 					<div>
 						<p>League of Legends match history tracker</p>
 						<div className='flex justify-center'>
-							<img
-								width='50'
-								height='50'
-								src={require("../../assets/Icons/react.png")}
-								alt='react'
-							/>
-							<img
-								width='50px'
-								height='50px'
-								src={require("../../assets/Icons/css3.png")}
-								alt='css'
-							/>
-							<img
-								width='50px'
-								height='50px'
-								src={require("../../assets/Icons/aws.png")}
-								alt=''
-							/>
+							<button className='h-[25px] px-3 flex justify-center items-center cursor-default  bg-blue-light text-white text-sm font-medium rounded-full m-2'>
+								<img
+									width='15'
+									height='15'
+									src={require("../../assets/Icons/react.png")}
+									alt='react'
+								/>
+								<span className='  ml-2'>React</span>
+							</button>
+							<button className='h-[25px] px-3 flex justify-center items-center cursor-default  bg-blue text-white text-sm font-medium rounded-full m-2'>
+								<img
+									width='15'
+									height='15'
+									src={require("../../assets/Icons/css3.png")}
+									alt='react'
+								/>
+								<span className='  ml-2'>CSS</span>
+							</button>
+							<button className='h-[25px] px-3 flex justify-center items-center cursor-default  bg-orange text-white text-sm font-medium rounded-full m-2'>
+								<img
+									width='15'
+									height='15'
+									src={require("../../assets/Icons/aws.png")}
+									alt='react'
+								/>
+								<span className='ml-2'>API Gateway</span>
+							</button>
 						</div>
 					</div>
 				),
 				modal: (
-					<div className='text-theme-primary-2 leading-relaxed'>
+					<>
+						<time className='mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500'>
+							February 2022
+						</time>
 						<p className='font-bold'>
 							Pull your 10 latest games with League Tracker
 						</p>
@@ -164,7 +192,7 @@ export default function Projects() {
 						</ul>
 
 						<br></br>
-					</div>
+					</>
 				),
 			},
 
@@ -186,24 +214,33 @@ export default function Projects() {
 						{" "}
 						<p>Google calendar exporter</p>
 						<div className='flex justify-center'>
-							<img
-								width='50'
-								height='50'
-								src={require("../../assets/Icons/react.png")}
-								alt='react'
-							/>
-							<img
-								width='50'
-								height='50'
-								src={require("../../assets/Icons/bootstrap.png")}
-								alt='css'
-							/>
+							<button className='h-[25px] px-3 flex justify-center items-center cursor-default  bg-blue-light text-white text-sm font-medium rounded-full m-2'>
+								<img
+									width='15'
+									height='15'
+									src={require("../../assets/Icons/react.png")}
+									alt='react'
+								/>
+								<span className='  ml-2'>React</span>
+							</button>{" "}
+							<button className='h-[25px] px-3 flex justify-center items-center cursor-default  bg-purple text-white text-sm font-medium rounded-full m-2'>
+								<img
+									width='15'
+									height='15'
+									src={require("../../assets/Icons/bootstrap.png")}
+									alt='React'
+								/>
+								<span className='ml-2'>Bootstrap</span>
+							</button>{" "}
 						</div>
 					</div>
 				),
 
 				modal: (
-					<div className='text-theme-primary-2 leading-relaxed'>
+					<>
+						<time className='mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500'>
+							July 2022
+						</time>
 						<p className='font-bold'>Time Entry Helper</p>
 						<br></br>
 						<h1 className='font-bold'>Features</h1>
@@ -234,7 +271,7 @@ export default function Projects() {
 						</ul>
 
 						<br></br>
-					</div>
+					</>
 				),
 			},
 			links: {

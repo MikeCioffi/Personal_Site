@@ -9,7 +9,7 @@ export default function Modal(props) {
 				<>
 					<div
 						id='modal'
-						className='cursor-pointer justify-center items-center flex overflow-x-hidden overflow-y-hidden h-screen w-screen fixed inset-0 z-50 outline-none focus:outline-none'
+						className='cursor-pointer justify-center md:items-center flex overflow-x-hidden  h-screen w-screen fixed inset-0 z-50 outline-none focus:outline-none'
 						onClick={props.closeModal}
 					>
 						<div
@@ -21,7 +21,7 @@ export default function Modal(props) {
 							<div className='border-0 rounded-lg shadow-lg relative flex flex-col w-full min-h-[60%] bg-white outline-none focus:outline-none'>
 								{/*header*/}
 								<button
-									className='p-1 ml-auto bg-transparent border-0 float-right leading-none font-bold outline-none focus:outline-none'
+									className=' absolute right-[5%]	xl:right-[17%] bg-transparent border-0 float-right leading-none font-bold outline-none focus:outline-none'
 									onClick={props.closeModal}
 								>
 									<span className='text-red bg-transparent bold text-red h-8 w-8 text-3xl block outline-none focus:outline-none'>
@@ -30,18 +30,20 @@ export default function Modal(props) {
 								</button>
 								{/*body*/}
 								{/* left side of modal */}
-								<div className='flex p-10 flex-auto flex-col lg:flex-row'>
-									<div className='w-full lg:w-6/8'>
+								<div className='flex p-10 flex-auto flex-col lg:flex-row '>
+									<div className='w-full xl:3/5 flex item-center justify-center'>
 										<LazyLoadImage
 											alt='gif'
 											src={props.gif}
-											className='shadow rounded'
+											className='shadow rounded self-center'
 										/>
 									</div>
 									{/* right side of modal */}
-									<div className='w-full lg:w-1/2 lg:ml-7 text-center lg:text-left'>
-										<div className='min-h-[80%]'>{props.modalDescription}</div>
-										<div className='flex justify-center align-center'>
+									<div className='w-full xl:w-2/5 lg:ml-7 text-center lg:text-left'>
+										<div className='min-h-[90%] text-theme-primary-2 leading-relaxed'>
+											{props.modalDescription}
+										</div>
+										<div className='flex justify-center lg:justify-start align-center'>
 											<a
 												href={props.liveLink}
 												target='blank'
@@ -49,12 +51,11 @@ export default function Modal(props) {
 											>
 												<button
 													type='button'
-													className='text-white bg-blue hover:bg-blue-light border-blue border-2 focus:ring-4 focus:outline-none focus:ring-cyan-300	dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center hover:bg-blue'
+													className='text-white bg-blue hover:bg-blue-light focus:ring-4 focus:outline-none focus:ring-cyan-300	dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center hover:opacity-90'
 												>
 													View Live
 												</button>
 											</a>
-
 											<a
 												href={props.githubLink}
 												target='blank'
@@ -62,7 +63,7 @@ export default function Modal(props) {
 											>
 												<button
 													type='button'
-													className='text-white bg-none border-none border-2 focus:ring-4 focus:outline-none focus:ring-cyan-300	dark:focus:ring-cyan-800 font-medium rounded-lg text-sm text-center m-1'
+													className='text-white bg-none border-none  hover:opacity-70 border-2 focus:ring-4 focus:outline-none focus:ring-cyan-300	dark:focus:ring-cyan-800 font-medium rounded-lg text-sm text-center m-1'
 												>
 													<svg
 														className='w-8 h-8'
