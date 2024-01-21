@@ -118,16 +118,16 @@ export default function Projects() {
 		},
 
 		{
-			title: "Match History",
+			title: "Stork Swipe",
 			image: {
-				title: "League Match History Preview",
-				src: require("../../../src/assets/League_Match.jpg"),
-				gif: require("../../../src/assets/league.gif"),
+				title: "Baby Name Matcher",
+				src: require("../../../src/assets/stork.jpg"),
+				gif: require("../../../src/assets/stork.gif"),
 			},
 			description: {
 				intro: (
 					<div>
-						<p>League of Legends match history tracker</p>
+						<p>Find your favorite baby name with your partner</p>
 						<div className='flex justify-center'>
 							<button className='h-[25px] px-3 flex justify-center items-center cursor-default  bg-blue-light text-white text-sm font-medium rounded-full m-2'>
 								<img
@@ -138,56 +138,63 @@ export default function Projects() {
 								/>
 								<span className='  ml-2'>React</span>
 							</button>
+							<button className='h-[25px] px-3 flex justify-center items-center cursor-default  bg-white text-green text-sm font-medium rounded-full m-2'>
+								<img
+									width='15'
+									height='15'
+									src={require("../../assets/Icons/node-js.png")}
+									alt='react'
+								/>
+								<span className='  ml-2'>NodeJS</span>
+							</button>
+							<button className='h-[25px] px-3 flex justify-center items-center cursor-default  bg-green-dark text-white text-sm font-medium rounded-full m-2'>
+								<img
+									width='15'
+									height='15'
+									src={require("../../assets/Icons/mongodb.png")}
+									alt='react'
+								/>
+								<span className='  ml-2'>MongoDB</span>
+							</button>
 							<button className='h-[25px] px-3 flex justify-center items-center cursor-default  bg-blue text-white text-sm font-medium rounded-full m-2'>
 								<img
 									width='15'
 									height='15'
-									src={require("../../assets/Icons/css3.png")}
+									src={require("../../assets/Icons/tailwind.png")}
 									alt='react'
 								/>
-								<span className='  ml-2'>CSS</span>
+								<span className='  ml-2'>Tailwind</span>
 							</button>
-							<button className='h-[25px] px-3 flex justify-center items-center cursor-default  bg-orange text-white text-sm font-medium rounded-full m-2'>
-								<img
-									width='15'
-									height='15'
-									src={require("../../assets/Icons/aws.png")}
-									alt='react'
-								/>
-								<span className='ml-2'>API Gateway</span>
-							</button>
+
 						</div>
 					</div>
 				),
 				modal: (
 					<>
 						<time className='mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500'>
-							February 2022
+							December 2023
 						</time>
 						<p className='font-bold'>
-							Pull your 10 latest games with League Tracker
+							Like/Dislike your favorite names
 						</p>
 						<br></br>
 						<h1 className='font-bold'>Features</h1>
 						<ul>
 							<li className='list-none lg:list-dic'>
-								Connects to RIOT's Api to pull individual match data
+								Send invites to your partner and other family members to connect.
 							</li>
 							<li className='list-none lg:list-dic'>
-								Utilizes ChartJS to display summary data
+								See your likes/dislikes all in one place!
 							</li>
 						</ul>
 						<br></br>
 						<h1 className='font-bold'>Lessons Learned</h1>
 						<ul>
 							<li className='list-none lg:list-dic'>
-								Utilizing AWS API Gateway to alleviate CORS issue
+								First serverless application.
 							</li>
 							<li className='list-none lg:list-dic'>
-								Lazy loading images for performance improvements
-							</li>
-							<li className='list-none lg:list-dic'>
-								Dashboard to showcase totals at a glance
+								Utilizing netlify functions to connect NodeJS to MongoDB.
 							</li>
 						</ul>
 
@@ -197,8 +204,8 @@ export default function Projects() {
 			},
 
 			links: {
-				github: "https://github.com/MikeCioffi/League-Tracker",
-				live: "https://matchhistory.netlify.app/",
+				github: "https://github.com/MikeCioffi/Stork-Swipe",
+				live: "https://storkswiper.netlify.app/",
 			},
 		},
 		{

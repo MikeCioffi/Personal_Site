@@ -17,7 +17,7 @@ export default function Project(props) {
 	return (
 		<div
 			id='Project'
-			className='flex flex-wrap justify-center px-2 text-center py-3 bg-theme-primary-2 text-white flex-col lg:flex-row py-40'
+			className='flex flex-wrap justify-center px-2 text-center  bg-theme-primary-2 text-white flex-col lg:flex-row py-40'
 		>
 			<div className='flex justify-center items-center flex-col'>
 				<h3 className='text-center text-white text-xl md:text-2xl lg:text-1xl'>
@@ -26,7 +26,7 @@ export default function Project(props) {
 				<br></br>
 				<img
 					onClick={openModal}
-					className='shadow-inner rounded-xl cursor-pointer	hover:opacity-95 '
+					className='shadow-inner rounded-xl cursor-pointer hover:opacity-95 h-full w-full'
 					src={props.imageSrc}
 					alt={props.imageAlt}
 				/>
