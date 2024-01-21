@@ -14,7 +14,7 @@ export default function Intro() {
 				Hi, I'm <span className='text-blue'>Mike</span>!
 			</h1>
 			<span className='text-white text-center text-3xl'>
-				Front End Developer{" "}
+				Mastering Product Management by Day, Coding Passion by Night. {" "}
 			</span>
 
 			<div className='flex'>
