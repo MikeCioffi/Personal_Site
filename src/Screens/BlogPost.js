@@ -109,36 +109,51 @@ export default function BlogPost() {
                                     td: ({ node, ...props }) => (
                                         <td className="px-6 py-4 text-sm text-gray-300 whitespace-nowrap" {...props} />
                                     ),
-                                    h2: ({ node, ...props }) => (
-                                        <h2
-                                            id={props.children.toString().toLowerCase().replace(/\s+/g, '-')}
-                                            className="text-3xl font-bold text-white mt-12 mb-6"
-                                            {...props}
-                                        />
-                                    ),
-                                    h3: ({ node, ...props }) => (
-                                        <h3
-                                            id={props.children.toString().toLowerCase().replace(/\s+/g, '-')}
-                                            className="text-2xl font-bold text-white mt-8 mb-4"
-                                            {...props}
-                                        />
-                                    ),
+                                    h2: ({ node, children, ...props }) => {
+                                        const text = children && children.toString().trim() ? children.toString() : "Heading";
+                                        return (
+                                            <h2
+                                                id={text.toLowerCase().replace(/\s+/g, '-')}
+                                                className="text-3xl font-bold text-white mt-12 mb-6"
+                                                {...props}
+                                            >
+                                                {children}
+                                            </h2>
+                                        );
+                                    },
+                                    h3: ({ node, children, ...props }) => {
+                                        const text = children && children.toString().trim() ? children.toString() : "Heading";
+                                        return (
+                                            <h3
+                                                id={text.toLowerCase().replace(/\s+/g, '-')}
+                                                className="text-2xl font-bold text-white mt-8 mb-4"
+                                                {...props}
+                                            >
+                                                {children}
+                                            </h3>
+                                        );
+                                    },
                                     p: ({ node, ...props }) => <p className="text-gray-300 leading-relaxed mb-6" {...props} />,
                                     ul: ({ node, ...props }) => <ul className="list-disc list-inside text-gray-300 mb-6" {...props} />,
                                     ol: ({ node, ...props }) => <ol className="list-decimal list-inside text-gray-300 mb-6" {...props} />,
                                     li: ({ node, ...props }) => <li className="mb-2" {...props} />,
-                                    a: ({ node, ...props }) => <a className="text-blue hover:text-blue-light underline" {...props} />,
+                                    a: ({ node, children, ...props }) => (
+                                        <a className="text-blue hover:text-blue-light underline" {...props}>
+                                            {children ? children : props.href}
+                                        </a>
+                                    ),
                                     blockquote: ({ node, ...props }) => (
                                         <blockquote
                                             className="border-l-4 border-blue pl-4 italic text-gray-400 my-6"
                                             {...props}
                                         />
                                     ),
-                                    code: ({ node, inline, ...props }) => (
-                                        inline
-                                            ? <code className="bg-theme-primary-2 text-blue px-1 py-0.5 rounded" {...props} />
-                                            : <code className="block bg-theme-primary-2 p-4 rounded-lg overflow-x-auto mb-6" {...props} />
-                                    ),
+                                    code: ({ node, inline, ...props }) =>
+                                        inline ? (
+                                            <code className="bg-theme-primary-2 text-blue px-1 py-0.5 rounded" {...props} />
+                                        ) : (
+                                            <code className="block bg-theme-primary-2 p-4 rounded-lg overflow-x-auto mb-6" {...props} />
+                                        ),
                                     pre: ({ node, ...props }) => <pre className="bg-transparent" {...props} />,
                                 }}
                             >

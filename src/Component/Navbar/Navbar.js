@@ -1,10 +1,8 @@
 import React from "react"
-import { Link as RouterLink, useLocation } from "react-router-dom"
+import { Link as RouterLink } from "react-router-dom"
 import "./navbar.css"
 
 export default function Navbar() {
-	const location = useLocation()
-	const isHome = location.pathname === "/"
 
 	return (
 		<div className='sti'>

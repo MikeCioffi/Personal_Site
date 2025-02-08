@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { addDoc, collection, getDocs, deleteDoc, doc, updateDoc } from 'firebase/firestore';
 import { db } from '../config/firebase';
-import { useNavigate } from 'react-router-dom';
 import slugify from 'slugify';
 import ReactMarkdown from 'react-markdown';
 
@@ -13,7 +12,6 @@ export default function Admin() {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [error, setError] = useState('');
     const [editingId, setEditingId] = useState(null);
-    const navigate = useNavigate();
 
     useEffect(() => {
         fetchPosts();
