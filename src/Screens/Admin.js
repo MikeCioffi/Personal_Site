@@ -37,7 +37,6 @@ export default function Admin() {
         setError('');
 
         try {
-            console.log('Starting post submission...');
             const slug = slugify(title, { lower: true });
             const post = {
                 title,
@@ -47,16 +46,10 @@ export default function Admin() {
                 updatedAt: new Date().toISOString()
             };
 
-            console.log('Post data:', post);
-
             if (editingId) {
-                console.log('Updating existing post:', editingId);
                 await updateDoc(doc(db, 'posts', editingId), post);
-                console.log('Post updated successfully');
             } else {
-                console.log('Creating new post...');
-                const docRef = await addDoc(collection(db, 'posts'), post);
-                console.log('Post created successfully with ID:', docRef.id);
+                await addDoc(collection(db, 'posts'), post);
             }
 
             setTitle('');
@@ -64,7 +57,6 @@ export default function Admin() {
             setEditingId(null);
             setView('list');
             await fetchPosts();
-            console.log('Operation completed successfully');
         } catch (error) {
             console.error('Error details:', error);
             setError(`Failed to save post: ${error.message}`);
@@ -119,7 +111,7 @@ export default function Admin() {
                                 <div className="flex justify-between items-start">
                                     <div>
                                         <h3 className="text-xl font-bold text-white mb-2">{post.title}</h3>
-                                        <p className="text-gray-400 text-sm">
+                                        <p className="text-white text-sm">
                                             {new Date(post.createdAt).toLocaleDateString()}
                                         </p>
                                     </div>
@@ -158,13 +150,13 @@ export default function Admin() {
                         <div className="bg-theme-primary-2 p-4 rounded-lg">
                             <h3 className="text-white font-medium mb-2">Markdown Guide:</h3>
                             <div className="grid grid-cols-2 gap-4 text-sm">
-                                <div className="space-y-1 text-gray-300">
+                                <div className="space-y-1 text-white">
                                     <p>## Heading 2</p>
                                     <p>### Heading 3</p>
                                     <p>**bold text**</p>
                                     <p>*italic text*</p>
                                 </div>
-                                <div className="space-y-1 text-gray-300">
+                                <div className="space-y-1 text-white">
                                     <p>- Bullet point</p>
                                     <p>1. Numbered list</p>
                                     <p>```code block```</p>
@@ -195,9 +187,88 @@ export default function Admin() {
                                     Preview
                                 </label>
                                 <div className="w-full h-[calc(100%-28px)] overflow-auto p-4 rounded-lg bg-theme-primary-2 border border-blue">
-                                    <div className="prose prose-invert prose-sm max-w-none">
-                                        <ReactMarkdown>{content}</ReactMarkdown>
-                                    </div>
+                                    <ReactMarkdown
+                                        components={{
+                                            table: ({ node, ...props }) => (
+                                                <table className="min-w-full divide-y divide-gray-700 my-8 text-white" {...props} />
+                                            ),
+                                            thead: ({ node, ...props }) => (
+                                                <thead className="bg-theme-primary-2 text-white" {...props} />
+                                            ),
+                                            tbody: ({ node, ...props }) => (
+                                                <tbody className="divide-y divide-gray-700 text-white" {...props} />
+                                            ),
+                                            tr: ({ node, ...props }) => (
+                                                <tr className="hover:bg-theme-primary-2/50 transition-colors" {...props} />
+                                            ),
+                                            th: ({ node, ...props }) => (
+                                                <th className="px-6 py-3 text-left text-sm font-semibold text-white" {...props} />
+                                            ),
+                                            td: ({ node, ...props }) => (
+                                                <td className="px-6 py-4 text-sm whitespace-nowrap text-white" {...props} />
+                                            ),
+                                            h1: ({ node, children, ...props }) => (
+                                                <h1 className="text-5xl font-bold text-white mb-4" {...props}>
+                                                    {children}
+                                                </h1>
+                                            ),
+                                            h2: ({ node, children, ...props }) => {
+                                                const text = children?.toString().trim() || "Heading";
+                                                return (
+                                                    <h2
+                                                        id={text.toLowerCase().replace(/\s+/g, '-')}
+                                                        className="text-3xl font-bold mt-12 mb-6 text-white"
+                                                        {...props}
+                                                    >
+                                                        {children}
+                                                    </h2>
+                                                );
+                                            },
+                                            h3: ({ node, children, ...props }) => {
+                                                const text = children?.toString().trim() || "Heading";
+                                                return (
+                                                    <h3
+                                                        id={text.toLowerCase().replace(/\s+/g, '-')}
+                                                        className="text-2xl font-bold mt-8 mb-4 text-white"
+                                                        {...props}
+                                                    >
+                                                        {children}
+                                                    </h3>
+                                                );
+                                            },
+                                            p: ({ node, ...props }) => (
+                                                <p className="text-white leading-relaxed mb-6" {...props} />
+                                            ),
+                                            ul: ({ node, ...props }) => (
+                                                <ul className="list-disc list-inside mb-6 text-white" {...props} />
+                                            ),
+                                            ol: ({ node, ...props }) => (
+                                                <ol className="list-decimal list-inside mb-6 text-white" {...props} />
+                                            ),
+                                            li: ({ node, ...props }) => (
+                                                <li className="mb-2 text-white" {...props} />
+                                            ),
+                                            a: ({ node, children, ...props }) => (
+                                                <a className="text-blue-300 hover:text-blue-400 underline" {...props}>
+                                                    {children || props.href}
+                                                </a>
+                                            ),
+                                            blockquote: ({ node, ...props }) => (
+                                                <blockquote className="border-l-4 border-blue pl-4 italic my-6 text-white" {...props} />
+                                            ),
+                                            code: ({ node, inline, ...props }) =>
+                                                inline ? (
+                                                    <code className="bg-theme-primary-2 text-white px-1 py-0.5 rounded" {...props} />
+                                                ) : (
+                                                    <code className="block bg-theme-primary-2 p-4 rounded-lg overflow-x-auto mb-6 text-white" {...props} />
+                                                ),
+                                            pre: ({ node, ...props }) => (
+                                                <pre className="bg-transparent text-white" {...props} />
+                                            ),
+                                        }}
+                                    >
+                                        {content}
+                                    </ReactMarkdown>
                                 </div>
                             </div>
                         </div>

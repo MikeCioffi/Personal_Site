@@ -1,19 +1,18 @@
 import React from "react"
 import "./intro.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { Link as ScrollLink } from "react-scroll"
 import { Link as RouterLink } from "react-router-dom"
-import { faArrowDown, faPenFancy, faProjectDiagram } from "@fortawesome/free-solid-svg-icons"
+import { faPenFancy, faProjectDiagram } from "@fortawesome/free-solid-svg-icons"
 
 export default function Intro() {
 	return (
 		<div
 			id='Intro'
-			className='flex flex-col items-center justify-center h-screen text-white'
+			className='relative flex flex-col items-center justify-start h-screen overflow-hidden text-white pt-12'
 			style={{ background: "linear-gradient(135deg, #0284c7, #06b6d4)" }}
 		>
 			<h1 className='text-4xl md:text-6xl lg:text-8xl font-bold'>
-				👋 Hey there, I'm <span className='text-black'>Mike</span>
+				👋 Hey there, I'm <span className='text-yellow-400'>Mike</span>
 			</h1>
 			<div className='mt-4 space-y-2 text-lg'>
 				<p>Turning ideas into polished products</p>
@@ -22,12 +21,13 @@ export default function Intro() {
 
 			<div className='flex mt-6 space-x-4'>
 				<a
+					className='linkedin'
 					href='https://www.linkedin.com/in/michaelcioffi95/'
 					target='blank'
 					rel='noopener noreferrer'
 				>
 					<img
-						className='logo-blue'
+						className='logo-linkedin'
 						src={require("../../assets/Icons/linkedin.png")}
 						width='35px'
 						height='35px'
@@ -35,12 +35,13 @@ export default function Intro() {
 					/>
 				</a>
 				<a
+					className='github'
 					href='https://github.com/MikeCioffi/'
 					target='blank'
 					rel='noopener noreferrer'
 				>
 					<img
-						className='logo-blue'
+						className='logo-github'
 						src={require("../../assets/Icons/github.png")}
 						width='35px'
 						height='35px'
@@ -48,12 +49,13 @@ export default function Intro() {
 					/>
 				</a>
 				<a
+					className='email'
 					href="mailto:mike.cioffi95@gmail.com?Subject=Hi! I'm reaching out from your website."
 					target='blank'
 					rel='noopener noreferrer'
 				>
 					<img
-						className='logo-blue'
+						className='logo-email'
 						src={require("../../assets/Icons/email.png")}
 						width='35px'
 						height='35px'
@@ -79,18 +81,7 @@ export default function Intro() {
 				</RouterLink>
 			</div>
 
-			<ScrollLink
-				duration={300}
-				className='cursor-pointer mt-12'
-				to='next-section'
-				smooth={true}
-			>
-				<div className='animate-bounce'>
-					<FontAwesomeIcon className='text-5xl' icon={faArrowDown} />
-				</div>
-			</ScrollLink>
-
-			<div className='custom-shape-divider-bottom-1657904637'>
+			<div className='custom-shape-divider-bottom-1657904637 absolute bottom-0 left-0 w-full pointer-events-none'>
 				<svg
 					data-name='Layer 1'
 					xmlns='http://www.w3.org/2000/svg'

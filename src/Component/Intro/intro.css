@@ -13,12 +13,37 @@
     position: relative;
     display: block;
     width: calc(225% + 1.3px);
-    height: 40vh; 
+    height: 40vh;
     transform: rotateY(180deg);
     z-index: 0
 }
 
 .custom-shape-divider-bottom-1657904637 .shape-fill {
-    fill: #18181b; 
+    fill: #18181b;
     z-index: 0
+}
+
+/* Social Media Icon styles */
+.logo-linkedin,
+.logo-github,
+.logo-email {
+    transition: transform 0.3s ease, filter 0.3s ease;
+    /* Ensure original icon colors are shown */
+    filter: none;
+}
+
+/* Hover Effects for each icon using subtle scaling and brightness adjustment */
+a.linkedin:hover .logo-linkedin {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+}
+
+a.github:hover .logo-github {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+}
+
+a.email:hover .logo-email {
+    transform: scale(1.1);
+    filter: brightness(1.2);
 }

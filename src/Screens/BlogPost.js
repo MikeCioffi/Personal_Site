@@ -88,33 +88,38 @@ export default function BlogPost() {
                             </div>
                         </header>
 
-                        <div className="prose prose-invert prose-lg max-w-none">
+                        <div className="prose prose-lg max-w-none">
                             <ReactMarkdown
                                 components={{
                                     table: ({ node, ...props }) => (
-                                        <table className="min-w-full divide-y divide-gray-700 my-8" {...props} />
+                                        <table className="min-w-full divide-y divide-gray-700 my-8 text-white" {...props} />
                                     ),
                                     thead: ({ node, ...props }) => (
-                                        <thead className="bg-theme-primary-2" {...props} />
+                                        <thead className="bg-theme-primary-2 text-white" {...props} />
                                     ),
                                     tbody: ({ node, ...props }) => (
-                                        <tbody className="divide-y divide-gray-700" {...props} />
+                                        <tbody className="divide-y divide-gray-700 text-white" {...props} />
                                     ),
                                     tr: ({ node, ...props }) => (
                                         <tr className="hover:bg-theme-primary-2/50 transition-colors" {...props} />
                                     ),
                                     th: ({ node, ...props }) => (
-                                        <th className="px-6 py-3 text-left text-sm font-semibold text-blue-light" {...props} />
+                                        <th className="px-6 py-3 text-left text-sm font-semibold text-white" {...props} />
                                     ),
                                     td: ({ node, ...props }) => (
-                                        <td className="px-6 py-4 text-sm text-gray-300 whitespace-nowrap" {...props} />
+                                        <td className="px-6 py-4 text-sm whitespace-nowrap text-white" {...props} />
+                                    ),
+                                    h1: ({ node, children, ...props }) => (
+                                        <h1 className="text-5xl font-bold text-white mb-4" {...props}>
+                                            {children}
+                                        </h1>
                                     ),
                                     h2: ({ node, children, ...props }) => {
-                                        const text = children && children.toString().trim() ? children.toString() : "Heading";
+                                        const text = children?.toString().trim() || "Heading";
                                         return (
                                             <h2
                                                 id={text.toLowerCase().replace(/\s+/g, '-')}
-                                                className="text-3xl font-bold text-white mt-12 mb-6"
+                                                className="text-3xl font-bold mt-12 mb-6 text-white"
                                                 {...props}
                                             >
                                                 {children}
@@ -122,39 +127,46 @@ export default function BlogPost() {
                                         );
                                     },
                                     h3: ({ node, children, ...props }) => {
-                                        const text = children && children.toString().trim() ? children.toString() : "Heading";
+                                        const text = children?.toString().trim() || "Heading";
                                         return (
                                             <h3
                                                 id={text.toLowerCase().replace(/\s+/g, '-')}
-                                                className="text-2xl font-bold text-white mt-8 mb-4"
+                                                className="text-2xl font-bold mt-8 mb-4 text-white"
                                                 {...props}
                                             >
                                                 {children}
                                             </h3>
                                         );
                                     },
-                                    p: ({ node, ...props }) => <p className="text-gray-300 leading-relaxed mb-6" {...props} />,
-                                    ul: ({ node, ...props }) => <ul className="list-disc list-inside text-gray-300 mb-6" {...props} />,
-                                    ol: ({ node, ...props }) => <ol className="list-decimal list-inside text-gray-300 mb-6" {...props} />,
-                                    li: ({ node, ...props }) => <li className="mb-2" {...props} />,
+                                    p: ({ node, ...props }) => (
+                                        <p className="text-white leading-relaxed mb-6" {...props} />
+                                    ),
+                                    ul: ({ node, ...props }) => (
+                                        <ul className="list-disc list-inside mb-6 text-white" {...props} />
+                                    ),
+                                    ol: ({ node, ...props }) => (
+                                        <ol className="list-decimal list-inside mb-6 text-white" {...props} />
+                                    ),
+                                    li: ({ node, ...props }) => (
+                                        <li className="mb-2 text-white" {...props} />
+                                    ),
                                     a: ({ node, children, ...props }) => (
-                                        <a className="text-blue hover:text-blue-light underline" {...props}>
-                                            {children ? children : props.href}
+                                        <a className="text-blue-300 hover:text-blue-400 underline" {...props}>
+                                            {children || props.href}
                                         </a>
                                     ),
                                     blockquote: ({ node, ...props }) => (
-                                        <blockquote
-                                            className="border-l-4 border-blue pl-4 italic text-gray-400 my-6"
-                                            {...props}
-                                        />
+                                        <blockquote className="border-l-4 border-blue pl-4 italic my-6 text-white" {...props} />
                                     ),
                                     code: ({ node, inline, ...props }) =>
                                         inline ? (
-                                            <code className="bg-theme-primary-2 text-blue px-1 py-0.5 rounded" {...props} />
+                                            <code className="bg-theme-primary-2 text-white px-1 py-0.5 rounded" {...props} />
                                         ) : (
-                                            <code className="block bg-theme-primary-2 p-4 rounded-lg overflow-x-auto mb-6" {...props} />
+                                            <code className="block bg-theme-primary-2 p-4 rounded-lg overflow-x-auto mb-6 text-white" {...props} />
                                         ),
-                                    pre: ({ node, ...props }) => <pre className="bg-transparent" {...props} />,
+                                    pre: ({ node, ...props }) => (
+                                        <pre className="bg-transparent text-white" {...props} />
+                                    ),
                                 }}
                             >
                                 {post.content}

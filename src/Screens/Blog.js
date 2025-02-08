@@ -75,7 +75,7 @@ export default function Blog() {
                             {posts.map(post => (
                                 <article
                                     key={post.id}
-                                    className="group bg-theme-primary-2 p-8 rounded-xl transition-all duration-300 border border-gray-800/50
+                                    className="group bg-theme-primary-2 p-8 rounded-xl transition-all duration-300 border border-white/10
                                               hover:border-blue/20 hover:shadow-lg hover:shadow-blue/5 hover:-translate-y-1"
                                 >
                                     <Link to={`/blog/${post.slug}`} className="block">
@@ -90,10 +90,10 @@ export default function Blog() {
                                                     day: 'numeric'
                                                 })}
                                             </time>
-                                            <span className="text-gray-400">•</span>
+                                            <span className="text-white/50">•</span>
                                             <span className="text-blue-light font-medium">{calculateReadingTime(post.content)} min read</span>
                                         </div>
-                                        <div className="prose prose-invert prose-sm max-w-none line-clamp-3 text-gray-300 group-hover:text-gray-200 transition-colors duration-300">
+                                        <div className="prose prose-invert prose-sm max-w-none line-clamp-3 text-white/70 group-hover:text-white/90 transition-colors duration-300">
                                             <ReactMarkdown>
                                                 {post.content.substring(0, 300)}
                                             </ReactMarkdown>
