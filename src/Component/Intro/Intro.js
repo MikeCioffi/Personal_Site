@@ -1,23 +1,26 @@
 import React from "react"
 import "./intro.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { Link } from "react-scroll"
-import { faArrowDown } from "@fortawesome/free-solid-svg-icons"
+import { Link as ScrollLink } from "react-scroll"
+import { Link as RouterLink } from "react-router-dom"
+import { faArrowDown, faPenFancy, faProjectDiagram } from "@fortawesome/free-solid-svg-icons"
+
 export default function Intro() {
 	return (
 		<div
 			id='Intro'
-			className='-mt-24 flex flex-col flex-wrap items-center justify-center px-2 text-center py-3 bg-theme-primary-1 h-screen text-slate-50'
+			className='flex flex-col items-center justify-center h-screen text-white'
+			style={{ background: "linear-gradient(135deg, #0284c7, #06b6d4)" }}
 		>
-			<h1 className='text-white text-center text-5xl md:text-5xl lg:text-8xl -mt-24'>
-				{" "}
-				Hi, I'm <span className='text-blue'>Mike</span>!
+			<h1 className='text-4xl md:text-6xl lg:text-8xl font-bold'>
+				👋 Hey there, I'm <span className='text-black'>Mike</span>
 			</h1>
-			<span className='text-white text-center text-md'>
-				Mastering Product Management by Day, Coding Passion by Night. {" "}
-			</span>
+			<div className='mt-4 space-y-2 text-lg'>
+				<p>Turning ideas into polished products</p>
+				<p>and sharing insights from the journey.</p>
+			</div>
 
-			<div className='flex'>
+			<div className='flex mt-6 space-x-4'>
 				<a
 					href='https://www.linkedin.com/in/michaelcioffi95/'
 					target='blank'
@@ -28,8 +31,8 @@ export default function Intro() {
 						src={require("../../assets/Icons/linkedin.png")}
 						width='35px'
 						height='35px'
-						alt='linkedin'
-					></img>
+						alt='LinkedIn'
+					/>
 				</a>
 				<a
 					href='https://github.com/MikeCioffi/'
@@ -41,8 +44,8 @@ export default function Intro() {
 						src={require("../../assets/Icons/github.png")}
 						width='35px'
 						height='35px'
-						alt='linkedin'
-					></img>{" "}
+						alt='GitHub'
+					/>
 				</a>
 				<a
 					href="mailto:mike.cioffi95@gmail.com?Subject=Hi! I'm reaching out from your website."
@@ -54,20 +57,39 @@ export default function Intro() {
 						src={require("../../assets/Icons/email.png")}
 						width='35px'
 						height='35px'
-						alt='linkedin'
-					></img>
+						alt='Email'
+					/>
 				</a>
 			</div>
-			<Link
+
+			<div className='flex gap-6 mt-12'>
+				<RouterLink
+					to='/blog'
+					className='bg-blue hover:bg-blue-light text-white py-2 px-4 rounded-lg flex items-center transition-transform transform hover:scale-105'
+				>
+					<FontAwesomeIcon icon={faPenFancy} className='mr-2' />
+					Read Latest Blog
+				</RouterLink>
+				<RouterLink
+					to='/projects'
+					className='bg-theme-secondary-1 hover:opacity-90 text-white py-2 px-4 rounded-lg flex items-center transition-transform transform hover:scale-105'
+				>
+					<FontAwesomeIcon icon={faProjectDiagram} className='mr-2' />
+					View Projects
+				</RouterLink>
+			</div>
+
+			<ScrollLink
 				duration={300}
-				className='cursor-pointer'
-				to='Project'
+				className='cursor-pointer mt-12'
+				to='next-section'
 				smooth={true}
 			>
-				<div className='animate-bounce mt-12'>
-					<FontAwesomeIcon className='text-5xl text-blue' icon={faArrowDown} />
+				<div className='animate-bounce'>
+					<FontAwesomeIcon className='text-5xl' icon={faArrowDown} />
 				</div>
-			</Link>
+			</ScrollLink>
+
 			<div className='custom-shape-divider-bottom-1657904637'>
 				<svg
 					data-name='Layer 1'
